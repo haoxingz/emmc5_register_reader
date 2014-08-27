@@ -22,9 +22,9 @@ f_ecsd = open("e_csd_map.config")
 
 for line in f_ecsd:
     if line[0] != '#':
-        tokens = line.split()
-        print "Name: %s, Size: %s, Type %s, Slice: %s" \
-                % (tokens[0], tokens[-3], tokens[-2], tokens[-1])
+        tokens = line.split(",")
+        print "Name: %s, Field: %s, Size: %s, Type %s, Slice: %s" \
+                % (tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
 
 # Close register map file
 f_ecsd.close()
