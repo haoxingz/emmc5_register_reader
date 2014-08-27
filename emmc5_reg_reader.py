@@ -17,3 +17,14 @@ test_hex = "0000000000000000000000000000000009030000d2010000d2010000000000000" \
 
 binary_value = format(int(test_hex, 16), '04096b')
 
+# Open register map file
+f_ecsd = open("e_csd_map.config")
+
+for line in f_ecsd:
+    if line[0] != '#':
+        tokens = line.split()
+        print "Name: %s, Size: %s, Type %s, Slice: %s" \
+                % (tokens[0], tokens[-3], tokens[-2], tokens[-1])
+
+# Close register map file
+f_ecsd.close()
