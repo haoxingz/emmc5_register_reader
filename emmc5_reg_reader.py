@@ -15,16 +15,19 @@ test_hex = "0000000000000000000000000000000009030000d2010000d2010000000000000" \
 "0000000000000000000000000000000000000000000000000000000000000000000000000fff" \
 "fffff00000103007f0003013f3f01010100000000000000"
 
-binary_value = format(int(test_hex, 16), '04096b')
-
 # Open register map file
-f_ecsd = open("e_csd_map.config")
+f_ecsd_map = open("ecsd.map", 'r')
+f_result = open("result", 'w')
 
-for line in f_ecsd:
+pos_cur = 0
+for line in f_ecsd_map:
     if line[0] != '#':
         tokens = line.split(",")
-        print "Name: %s, Field: %s, Size: %s, Type %s, Slice: %s" \
-                % (tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
+        size_cur = int(tokens[2], 10)
+        value_cur = test_hex[pos_cur:pos_cur + 2*size_cur]
+        f_result.write(value_cur + "\n")
+        pos_cur = pos_cur + 2*size_cur
 
 # Close register map file
-f_ecsd.close()
+f_ecsd_map.close()
+f_result.close()
