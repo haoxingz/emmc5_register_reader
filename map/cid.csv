@@ -1,0 +1,11 @@
+Name,Field,Width [bits],CID-Slice
+Manufacturer ID,MID,8,[127:120]
+Reserved,,6,[119:114]
+Device/BGA,CBX,2,[113:112]
+OEM/Application ID,OID,8,[111:104]
+Product name,PNM,48,[103:56]
+Product revision,PRV,8,[55:48]
+Product serial number,PSN,32,[47:16]
+Manufacturing date,MDT,8,[15:8]
+CRC7 checksum,CRC,7,[7:1]
+not used  always ?1?,-,1,[0]
